@@ -1,9 +1,9 @@
-#Homework
+# Homework
 
-##Build project:
+## Build project:
     
     npm run build
     
-##Run project:
+## Run project:
 
     npm run start
