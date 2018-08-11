@@ -1,0 +1,13 @@
+.cdn
+.DS_Store
+.env
+.vscode
+.idea/
+coverage/
+/app/*
+jsconfig.json
+node_modules/
+npm-debug.log
+.naverc
+/*sublime*
+.tmp/
