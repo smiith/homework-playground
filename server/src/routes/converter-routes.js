@@ -5,7 +5,7 @@ const converterService = require('../services/converter-service')
 router.route('/api/converter')
 	.post((req, res) => {
 		//TODO validation
-		res.json({message: converterService(req.data)})
+		res.json({result: converterService(req.body.input)})
 })
 
 module.exports = router;
