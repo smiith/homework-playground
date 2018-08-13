@@ -2,7 +2,7 @@ const express = require('express')
 const logger = require('morgan')
 const path = require('path')
 const bodyParser = require('body-parser')
-const converterRoutes = require('./routes/converter-routes')
+const converterRoutesHandler = require('./routes/converter-routes')
 
 const app = express()
 
@@ -18,9 +18,9 @@ app.use((err, req, res, next) => {
 })
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static('../../app'))
-app.use(converterRoutes)
+app.post('/api/converter', converterRoutesHandler)
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname, '../../app', 'index.html'))
 })
 
