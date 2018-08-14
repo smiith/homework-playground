@@ -10,7 +10,9 @@
   },
   "scripts": {
     "start": "DEBUG=1 node server/index.js",
-    "be:test": "jest --testPathPattern=server\\/.+\\.test\\.js$ --coverage"
+    "be:test": "jest --testPathPattern=server\\/.+\\.test\\.js$ --coverage",
+    "build": "webpack --config ./client/webpack.config.js",
+    "watch": "webpack --watch --config ./client/webpack.config.js"
   },
   "author": "Karavajev",
   "license": "",
@@ -21,6 +23,15 @@
     "morgan": "^1.9.0"
   },
   "devDependencies": {
-    "jest": "^23.5.0"
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "jest": "^23.5.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0"
   }
 }

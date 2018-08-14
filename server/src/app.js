@@ -17,11 +17,11 @@ app.use((err, req, res, next) => {
 	}
 })
 app.use(bodyParser.urlencoded({extended: true}))
-app.use(express.static('../../app'))
+app.use('/', express.static(path.join(__dirname, '../../app')))
 app.post('/api/converter', converterRoutesHandler)
 
-app.get('/', (req, res) => {
-	res.sendFile(path.join(__dirname, '../../app', 'index.html'))
-})
+// app.get('/', (req, res) => {
+// 	res.sendFile(path.join(__dirname, '../../app', 'index.html'))
+// })
 
 module.exports = app
