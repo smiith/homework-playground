@@ -4,10 +4,14 @@
 
     npm intall
 
-## Build project:
+## Build project
     
     npm run build
     
+## Test backend
+
+    npm run be:test
+        
 ## Run project:
 
     npm run start
