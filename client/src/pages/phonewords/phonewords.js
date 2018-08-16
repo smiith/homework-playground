@@ -5,7 +5,8 @@ export default class PhoneWords extends React.PureComponent {
 		super(props)
 
 		this.state = {
-			inputDigits: ''
+			inputDigits: '',
+			inputError: false
 		}
 
 		this.handleSubmit = this.handleSubmit.bind(this)
@@ -13,24 +14,28 @@ export default class PhoneWords extends React.PureComponent {
 	}
 
 	handleSubmit(ev) {
+		ev.preventDefault()
+		if (this.state.inputError) return
 		this.props.submitConversion({input: this.state.inputDigits});
 		this.setState({inputDigits: ''})
-		ev.preventDefault()
 	}
 
-	handleInput(ev) { // TODO validation
-		this.setState({inputDigits: ev.target.value})
+	handleInput(ev) {
+		const value = ev.target.value
+		this.setState({inputDigits: value, inputError: !!(value && !/^\d+$/.test(value)) })
 	}
 
 	render() {
 		const {convertedWords} = this.props;
+		const {inputDigits, inputError} = this.state
 		return (
 			<div>
 				<h1>Phoneword converter</h1>
 				<form onSubmit={this.handleSubmit}>
 					<label>
 						Digits:
-						<input type="text" name="digits" onChange={this.handleInput} value={this.state.inputDigits}/>
+						<input style={{background: inputError ? 'red' : 'white'}} type="text" name="digits" onChange={this.handleInput}
+									 onKeyUp={this.handleInput} value={inputDigits}/>
 					</label>
 				</form>
 				{convertedWords.map( (word, i) => <div key={i}>{word}</div>)}
