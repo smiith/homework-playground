@@ -2,7 +2,7 @@
 
 ## Install
 
-		npm intall
+    npm intall
 
 ## Build project:
     
@@ -14,4 +14,4 @@
 
 ## Access application
 
-		Open in browser URL http://localhost:3000/
+    Open in browser URL http://localhost:3000/
