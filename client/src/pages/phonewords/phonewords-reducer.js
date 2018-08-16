@@ -6,8 +6,8 @@ const initialState = {
 
 export default function (state = initialState, action) {
 	switch (action.type) {
-		case ACTIONS.SUBMIT_DIGITS:
-			return state
+		case ACTIONS.RECEIVE_CONVERSION:
+			return{ ...state, convertedWords: action.payload.result}
 	}
 	return state
 };

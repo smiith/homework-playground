@@ -1,5 +1,7 @@
+import apiConversion from './phonewords-api'
+
 export const ACTIONS = {
-	SUBMIT_DIGITS: 'phonewords/submit_digits',
+	RECEIVE_CONVERSION: 'phonewords/receive_conversion'
 };
 
-export const submitDigits = (message) => ({type: ACTIONS.SUBMIT_DIGITS, message});
+export const receiveConversion = (payload) => ({type: ACTIONS.RECEIVE_CONVERSION, payload});
