@@ -1,5 +1,3 @@
-import apiConversion from './phonewords-api'
-
 export const ACTIONS = {
 	RECEIVE_CONVERSION: 'phonewords/receive_conversion'
 };
