@@ -1,4 +1,5 @@
 import React from 'react'
+import englishWords from 'an-array-of-english-words'
 
 export default class PhoneWords extends React.PureComponent {
 	constructor(props) {
@@ -16,17 +17,21 @@ export default class PhoneWords extends React.PureComponent {
 	handleSubmit(ev) {
 		ev.preventDefault()
 		if (this.state.inputError) return
-		this.props.submitConversion({input: this.state.inputDigits});
+		this.props.submitConversion({input: this.state.inputDigits})
 		this.setState({inputDigits: ''})
 	}
 
 	handleInput(ev) {
 		const value = ev.target.value
-		this.setState({inputDigits: value, inputError: !!(value && !/^\d+$/.test(value)) })
+		this.setState({inputDigits: value, inputError: !!(value && !/^\d+$/.test(value))})
+	}
+
+	renderConvertedWords() {
+		const {convertedWords} = this.props
+		return convertedWords.filter(word => englishWords.includes(word)).map(word => <div key={word}>{word}</div>)
 	}
 
 	render() {
-		const {convertedWords} = this.props;
 		const {inputDigits, inputError} = this.state
 		return (
 			<div>
@@ -34,11 +39,12 @@ export default class PhoneWords extends React.PureComponent {
 				<form onSubmit={this.handleSubmit}>
 					<label>
 						Digits:
-						<input style={{background: inputError ? 'red' : 'white'}} type="text" name="digits" onChange={this.handleInput}
+						<input style={{background: inputError ? 'red' : 'white'}} type="text" name="digits"
+									 onChange={this.handleInput}
 									 onKeyUp={this.handleInput} value={inputDigits}/>
 					</label>
 				</form>
-				{convertedWords.map( (word, i) => <div key={i}>{word}</div>)}
+				{this.renderConvertedWords()}
 			</div>
 		)
 	};
