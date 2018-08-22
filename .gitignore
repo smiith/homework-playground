@@ -4,7 +4,7 @@
 .vscode
 .idea/
 coverage/
-/app/*
+/app/dev/*
 jsconfig.json
 node_modules/
 npm-debug.log
