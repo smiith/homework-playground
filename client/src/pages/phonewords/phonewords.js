@@ -1,5 +1,4 @@
 import React from 'react'
-import englishWords from 'an-array-of-english-words'
 
 export default class PhoneWords extends React.PureComponent {
 	constructor(props) {
@@ -28,7 +27,7 @@ export default class PhoneWords extends React.PureComponent {
 
 	renderConvertedWords() {
 		const {convertedWords} = this.props
-		return convertedWords.filter(word => englishWords.includes(word)).map(word => <div key={word}>{word}</div>)
+		return convertedWords.map(word => <div key={word}>{word}</div>)
 	}
 
 	render() {
