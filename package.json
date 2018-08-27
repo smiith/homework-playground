@@ -11,6 +11,7 @@
   "scripts": {
     "start": "DEBUG=1 node server/index.js",
     "be:test": "jest --testPathPattern=server\\/.+\\.test\\.js$ --coverage",
+    "fe:test": "jest --config jest/jest.config.js --testPathPattern=client\\/.+\\.test\\.js$ --coverage",
     "build": "webpack --config ./client/webpack.config.js",
     "watch": "webpack --watch --config ./client/webpack.config.js"
   },
@@ -26,10 +27,15 @@
     "an-array-of-english-words": "^1.3.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-jest": "^23.4.2",
     "babel-loader": "^7.1.5",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "enzyme": "^3.5.0",
+    "enzyme-adapter-react-16": "^1.3.0",
     "jest": "^23.5.0",
+    "jest-enzyme": "^6.0.4",
     "lodash": "^4.17.10",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
